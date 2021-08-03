@@ -1,4 +1,13 @@
 .lbh-header__container {
   display: flex;
   align-items: center;
+  border-bottom-color: #00513f;
+}
+
+.lbh-header__logotype {
+  svg {
+    width: 100%;
+    max-width: 12rem;
+    padding-top: 0.25rem;
+  }
 }

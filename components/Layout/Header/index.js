@@ -3,6 +3,7 @@ import css from "./index.module.css";
 import HackneyLogo from "./HackneyLogo";
 import Link from "next/link";
 
+// Todo: make this a state that gets updated by authorizer based on user login status.
 const navlinks = [
   {
     name: "Hackney APIs",
@@ -16,16 +17,18 @@ const navlinks = [
 
 const Header = ({ serviceName }) => (
   <header className="govuk-header" role="banner" data-module="govuk-header">
-    <div className={`govuk-header__container govuk-width-container ${scss["lbh-header__container"]}`}>
-      <a href="/" className={css.lbhHeaderTitleLink}>
-        <div className={`${scss["lbh-header__logo"]}`}>
-          <span className={`govuk-header__logotype ${scss["lbh-header__logotype"]}`}>
-            <HackneyLogo />
+    <div id={`${scss["lbh-header__container"]}`} className={` govuk-width-container`}>
+      <div id={scss.headerLogoAndText}>
+        <a href="/" className={css.lbhHeaderTitleLink}>
+          <span>
+            <span className={`govuk-header__logotype ${scss["lbh-header__logotype"]}`}>
+              <HackneyLogo />
+            </span>
+            <span className={css.lbhHeaderServiceName}>{serviceName}</span>
           </span>
-          <span className={css.lbhHeaderServiceName}>{serviceName}</span>
-        </div>
-      </a>
-      <div className="govuk-header__content">
+        </a>
+      </div>
+      <div id={scss.headerNavLinks}>
         <nav className={css.lbhHeaderLinks}>
           {navlinks && (
             <>

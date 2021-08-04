@@ -8,12 +8,9 @@ const Header = ({ serviceName }) => (
         <span className={`govuk-header__logotype ${css["lbh-header__logotype"]}`}>
           <HackneyLogo />
         </span>
+        <span className="lbh-header__service-name">{serviceName}</span>
       </div>
-      <div className="govuk-header__content">
-        <a href="/" className="govuk-header__link govuk-header__link--service-name">
-          {serviceName}
-        </a>
-      </div>
+      <div className="govuk-header__content"></div>
     </div>
   </header>
 );

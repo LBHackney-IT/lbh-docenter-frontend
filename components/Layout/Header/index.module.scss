@@ -1,0 +1,28 @@
+#lbh-header__container {
+  align-items: center;
+  position: relative;
+  margin-bottom: -10px;
+  padding-top: 10px;
+  border-bottom: 10px solid #1d70b8;
+  border-bottom-color: #00513f;
+  display: flex;
+  justify-content: space-between;
+}
+
+.lbh-header__logotype {
+  display: block;
+  svg {
+    width: 100%;
+    max-width: 12rem;
+    padding-top: 0.25rem;
+  }
+}
+
+#headerNavLinks {
+  margin-right: 10px;
+}
+
+#headerLogoAndText {
+  margin-left: 10px;
+  padding-bottom: 5px;
+}

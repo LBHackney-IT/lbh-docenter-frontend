@@ -1,0 +1,13 @@
+#headerNavLinks {
+  box-sizing: border-box;
+  align-items: center;
+}
+
+#headerNavLinks a {
+  margin-top: 0;
+}
+
+.lbhHeaderLink:hover {
+  border-bottom: 1px solid;
+  border-bottom-color: #ffffff !important;
+}

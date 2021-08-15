@@ -1,9 +1,10 @@
-import Layout from "../components/Layout";
+import NonDocsLayout from "../components/Layout/Non-Docs";
+import DocsLayout from "../components/Layout/Docs";
 
 export default function Home() {
   return (
-    <Layout>
+    <DocsLayout>
       <p>Home Page</p>
-    </Layout>
+    </DocsLayout>
   );
 }

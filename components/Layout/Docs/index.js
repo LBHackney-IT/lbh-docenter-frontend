@@ -13,8 +13,12 @@ const DocsLayout = ({ children }) => (
             </a>
             <nav class={css.apiSelection}>
               <ul className={css.apiNavLinksList}>
-                {[...Array(5).keys()].map((num) => (
-                  <li key={num}>API number {num}</li>
+                {[...Array(15).keys()].map((num) => (
+                  <li key={num}>
+                    <a href="#" className={css.apiLink}>
+                      API number {num}
+                    </a>
+                  </li>
                 ))}
               </ul>
             </nav>

@@ -36,7 +36,33 @@
 
 .apiSelection {
   padding: 0.5rem;
+  font-weight: 500;
 }
 
 .apiNavLinksList {
+}
+
+.apiNavLinksList li:not(:first-child) {
+  margin-top: 0.25rem;
+}
+
+.apiLink {
+  border-radius: 0.25rem;
+  line-height: 1.25;
+  padding: 0.375rem 1rem;
+}
+
+.apiLink:hover {
+  background: rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+}
+
+.apiLink,
+.apiLink:hover {
+  color: #606770;
+}
+
+.apiLinkActive,
+.apiLinkActive:hover {
+  color: hsl(167.68%, 45%);
 }

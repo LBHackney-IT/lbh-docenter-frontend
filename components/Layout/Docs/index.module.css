@@ -97,6 +97,8 @@
 .apiSelection {
   padding: 0.5rem;
   font-weight: 500;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .apiNavLinksList {

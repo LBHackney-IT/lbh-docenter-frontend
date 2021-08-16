@@ -101,6 +101,22 @@
   overflow-y: scroll;
 }
 
+.apiSelection::-webkit-scrollbar {
+  width: 10px;
+}
+
+.apiSelection::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.apiSelection::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.apiSelection::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .apiNavLinksList {
 }
 

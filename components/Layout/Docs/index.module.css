@@ -96,6 +96,7 @@
 
 .apiSelection {
   padding: 0.5rem;
+  margin-top: 0;
   font-weight: 500;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -117,7 +118,9 @@
   background: #555;
 }
 
+/* Ul within nav */
 .apiNavLinksList {
+  list-style-type: none;
 }
 
 .apiNavLinksList li:not(:first-child) {

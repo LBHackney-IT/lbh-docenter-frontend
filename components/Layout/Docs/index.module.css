@@ -28,10 +28,70 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
   height: 100%;
   max-height: 100vh;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding-top: 0;
+  margin-top: -104px;
+}
+
+.sidebarLogo {
+  max-height: 101px;
+  min-height: 101px;
+  padding-bottom: 21px;
+  position: relative;
+  /* padding-bottom: 1.3125rem; */
+  border-bottom: 2px solid #84bd00;
+  background: #ffffff;
+  display: flex;
+  align-items: stretch;
+}
+
+.pointlessContainer {
+  max-height: 78px;
+  min-height: 78px;
+  color: #00513f;
+  /* background: #0b0c0c; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  padding-left: 0.5rem;
+  padding-top: 0.5rem;
+  margin-left: 16px;
+}
+
+.sidebarServiceName {
+  color: #1c1e21;
+  font-weight: 600;
+  margin-top: 0;
+}
+
+.sidebarLogo svg {
+  width: 206px;
+}
+
+.sidebarLogo:before {
+  bottom: 3px;
+  border-bottom: 3px solid #00b341;
+}
+
+.sidebarLogo:after {
+  bottom: 9px;
+  border-bottom: 4px solid #00664f;
+}
+
+.sidebarLogo:before,
+.sidebarLogo:after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 1200px;
+  right: 0;
+  left: 0;
 }
 
 .apiSelection {

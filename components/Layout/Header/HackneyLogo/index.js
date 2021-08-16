@@ -1,5 +1,6 @@
 const HackneyLogo = () => (
   <svg
+    class="lbh-header__logo"
     alt="Hackney Council"
     viewBox="0 0 208 37"
     role="presentation"

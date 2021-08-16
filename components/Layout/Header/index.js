@@ -19,15 +19,11 @@ const Header = ({ serviceName }) => (
   <header class="lbh-header ">
     <div class="lbh-header__main">
       <div class="lbh-container lbh-header__wrapper lbh-header__wrapper--stacked">
-        <div class="lbh-header__title">
+        <div className={`lbh-header__title ${css.logoService}`}>
           <a href="/" class="lbh-header__title-link">
-            <span>
-              <span className="lbh-header__logotype">
-                <HackneyLogo />
-              </span>
-              <span className="lbh-header__service-name">{serviceName}</span>
-            </span>
+            <HackneyLogo />
           </a>
+          <span className="lbh-header__service-name">{serviceName}</span>
         </div>
         <nav id={css.headerNavLinks} className="lbh-header__links">
           {navlinks && (

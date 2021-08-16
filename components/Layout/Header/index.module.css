@@ -11,3 +11,14 @@
   border-bottom: 1px solid;
   border-bottom-color: #ffffff !important;
 }
+
+.logoService {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.logoService span {
+  padding-top: 0;
+}

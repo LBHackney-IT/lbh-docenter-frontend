@@ -20,6 +20,7 @@
 .sidebarWrapper {
   border-right: 1px solid #dadde1;
   width: 300px;
+  min-width: 300px;
   display: block;
 }
 

@@ -28,21 +28,32 @@
 }
 
 .toc {
+  /* pos */
+}
+
+.tocBorder {
+  padding: 1rem;
+  border-left: 1px solid #dadde1;
+  box-sizing: border-box;
+}
+
+.toc ul li {
+  margin-top: 0.25rem;
 }
 
 .toc ul {
-  border-left: 1px solid #dadde1;
+  margin-top: 0.75rem;
 }
 
-.table-of-contents,
-.table-of-contents ul {
+/* .toctst,
+.toctst ul {
   list-style-type: none;
   padding-left: 0.5rem;
 }
 
-.table-of-contents {
+.toctst {
   font-size: 0.8rem;
   margin-bottom: 0;
   padding: 0.5rem 0;
-}
+} */
 

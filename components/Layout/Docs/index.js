@@ -1,6 +1,7 @@
 import Header from "../Header";
 import HackneyLogo from "../Header/HackneyLogo";
 import css from "./index.module.css";
+import apiContent from "./apiContent.module.css";
 
 const DocsLayout = ({ children }) => (
   <>
@@ -28,7 +29,27 @@ const DocsLayout = ({ children }) => (
             </nav>
           </div>
         </aside>
-        <main>{children}</main>
+        <main className={apiContent.apiItemDocsContainer}>
+          <div className={apiContent.row}>
+            <div className={`${apiContent.col} ${apiContent.col3of4}`}>{children}</div>
+            <div className={`${apiContent.col} ${apiContent.col1of4}`}>
+              <div className={apiContent.toc}>
+                <ul
+                  style={{
+                    color: "blue",
+                    listStyleType: "none",
+                  }}
+                >
+                  {[...Array(10).keys()].map((num) => (
+                    <li key={num}>
+                      <a href="#">Section {num}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </main>
       </div>
     </div>
   </>

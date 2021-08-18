@@ -1,0 +1,48 @@
+.apiItemDocsContainer {
+  display: flex;
+  flex-basis: 100%;
+  /* width: 100%; */
+  padding: 20px;
+  margin-top: 0;
+}
+
+.row {
+  display: flex;
+  flex-basis: 100%;
+  /* flex-flow: row nowrap; */
+  /* justify-content: space-around; */
+}
+
+.row .col {
+  flex: 1 0;
+  margin-left: 0;
+}
+
+.col3of4 {
+  flex: 0 0 75%;
+}
+
+.col1of4 {
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+
+.toc {
+}
+
+.toc ul {
+  border-left: 1px solid #dadde1;
+}
+
+.table-of-contents,
+.table-of-contents ul {
+  list-style-type: none;
+  padding-left: 0.5rem;
+}
+
+.table-of-contents {
+  font-size: 0.8rem;
+  margin-bottom: 0;
+  padding: 0.5rem 0;
+}
+

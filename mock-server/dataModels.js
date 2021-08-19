@@ -35,6 +35,7 @@ export class OtherDocumentation {
     this.dataModel = dataModel;
   }
 }
+// I wonder if this could just be replaced by giving list of paths to certain /docs/*.md files
 
 // Dependency Models
 
@@ -66,13 +67,14 @@ export class DependencyDatabase {
     this.technicalName = technicalName;
     this.type = type;
     this.hostedAt = hostedAt;
+    // Should I include endpointsUsingIt? Sounds useful
   }
 }
 
 // Dependency Database Endpoint, hence not a lot of detail
 export class Endpoint {
-  constructor({ method, name }) {
-    this.method = method;
-    this.name = name;
+  constructor({ httpMethod, name }) {
+    this.httpMethod = httpMethod;
+    this.name = name; // Could be a dropdown once I start parsing swagger json
   }
 }

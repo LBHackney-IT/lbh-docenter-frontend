@@ -29,6 +29,10 @@
 
 .toc {
   /* pos */
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding-top: 0;
 }
 
 .tocBorder {
@@ -37,6 +41,7 @@
   box-sizing: border-box;
 }
 
+/* table-of-contents__left-border { */
 .toc ul li {
   margin-top: 0.25rem;
 }
@@ -57,3 +62,9 @@
   padding: 0.5rem 0;
 } */
 
+/* .tableOfContents_3RiQ {
+  max-height: calc(100vh - var(--ifm-navbar-height) - 2rem);
+  overflow-y: auto;
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 1rem);
+} */

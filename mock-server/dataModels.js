@@ -35,3 +35,44 @@ export class OtherDocumentation {
     this.dataModel = dataModel;
   }
 }
+
+// Dependency Models
+
+// Ideally you'd have people listing what endpoints
+// are using what APIs, but that might be pushing it.
+
+// I wonder if the API Id can be extrapolated from
+// data provided :/
+export class DependencyAPI {
+  constructor(apiId, apiName, endpointsUsingIt) {
+    this.apiId = apiId;
+    this.apiName = apiName;
+    this.endpointsUsingIt = endpointsUsingIt;
+  }
+}
+
+export class DependencyScript {
+  constructor(name, githubUrl, description) {
+    this.name = name;
+    this.githubUrl = githubUrl;
+    this.description = description;
+  }
+}
+
+export class DependencyDatabase {
+  constructor(name, type, hostedAt, technicalName) {
+    this.name = name;
+    // How it's called within AWS, Google Cloud, Airtable, or onPrem server
+    this.technicalName = technicalName;
+    this.type = type;
+    this.hostedAt = hostedAt;
+  }
+}
+
+// Dependency Database Endpoint, hence not a lot of detail
+export class Endpoint {
+  constructor(method, name) {
+    this.method = method;
+    this.name = name;
+  }
+}

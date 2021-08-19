@@ -22,10 +22,10 @@ export class Environments {
 
 export class Dependencies {
   constructor(apis, scripts, databases, packages) {
-    this.apis = apis;
-    this.scripts = scripts;
-    this.databases = databases;
-    this.packages = packages;
+    this.apis = apis || [];
+    this.scripts = scripts || [];
+    this.databases = databases || [];
+    this.packages = packages || [];
   }
 }
 
@@ -47,7 +47,7 @@ export class DependencyAPI {
   constructor(apiId, apiName, endpointsUsingIt) {
     this.apiId = apiId;
     this.apiName = apiName;
-    this.endpointsUsingIt = endpointsUsingIt;
+    this.endpointsUsingIt = endpointsUsingIt || [];
   }
 }
 

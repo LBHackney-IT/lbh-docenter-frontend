@@ -124,8 +124,9 @@ function createRandomAPIRecord(mockServerPort) {
   });
 }
 
-const generateData = (quantity, mockServerPort = 3001) =>
-  nItems(quantity, createRandomAPIRecord, mockServerPort).unshift(theOnlyRealRecord);
+const generateData = (quantity, mockServerPort = 3001) => ({
+  apiRecords: [theOnlyRealRecord].concat(nItems(quantity, createRandomAPIRecord, mockServerPort)),
+});
 
 module.exports = {
   generateData,

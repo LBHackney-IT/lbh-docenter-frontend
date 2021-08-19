@@ -1,4 +1,4 @@
-import {
+const {
   APIRecord,
   Environments,
   Dependencies,
@@ -6,10 +6,12 @@ import {
   DependencyAPI,
   Endpoint,
   DependencyScript,
-} from "mock-server/dataModels.js";
+} = require("./dataModels");
 
 const faker = require("faker");
 const randexp = require("randexp").randexp;
+
+faker.locale = "en";
 
 // create 1 semi-real as that's the only data I've got currently
 const theOnlyRealRecord = new APIRecord({
@@ -69,6 +71,62 @@ const theOnlyRealRecord = new APIRecord({
   status: "ACTIVE",
 });
 
-const apiRecords = [];
+// TODO: Generate endpoints programatically
 
-function createRandomAPIRecord(autoincrId) {}
+const nItems = (n, itemProducer, ...args) => [...Array(n)].map((_) => itemProducer(...args));
+const randInt = (mn, mx) => faker.datatype.number({ min: mn, max: mx });
+
+function createRandomAPIRecord(mockServerPort) {
+  return new APIRecord({
+    baseUrl: new Environments({
+      // swagger/index.html
+      staging: `localhost:${mockServerPort}/mock-endpoint/${randexp(/[^\W_]{12}/)}/`,
+    }),
+    githubUrl: "https://github.com/LBHackney-IT/social-care-case-viewer-api",
+    dependencies: new Dependencies({
+      apis: nItems(
+        randInt(1, 3),
+        () =>
+          new DependencyAPI({
+            apiId: randexp(/[^\W_]{8}/),
+            apiName: `${faker.lorem.words(randInt(1, 3))} API`,
+            endpointsUsingIt: nItems(
+              randInt(1, 3),
+              () =>
+                new Endpoint({
+                  httpMethod: randexp(/GET|POST|PATCH|DELETE|UPDATE|OPTIONS/),
+                  name: faker.lorem.words(randInt(1, 3)),
+                })
+            ),
+          })
+      ),
+      scripts: faker.datatype.boolean()
+        ? null
+        : nItems(
+            randInt(1, 2),
+            () =>
+              new DependencyScript({
+                name: faker.lorem.words(randInt(2, 5)),
+                description: faker.lorem.sentence(),
+              })
+          ),
+      databases: nItems(randInt(1, 4), () => {
+        const randName = faker.lorem.words(randInt(2, 4));
+        new DependencyDatabase({
+          name: randName,
+          technicalName: randName.replace(" ", "_") + "_DB",
+          type: randexp(/MongoDB|Airtable|S3 Bucket|DynamoDB|PostgreSQL|TSQL/),
+          hostedAt: randexp(/AWS|GCP|Airtable|On-premises/) + faker.lorem.word(),
+        });
+      }),
+    }),
+    status: "ACTIVE",
+  });
+}
+
+const generateData = (quantity, mockServerPort = 3001) =>
+  nItems(quantity, createRandomAPIRecord, mockServerPort).unshift(theOnlyRealRecord);
+
+module.exports = {
+  generateData,
+};

@@ -1,6 +1,6 @@
-import { randexp } from "randexp/types";
+const randexp = require("randexp").randexp;
 
-export class APIRecord {
+class APIRecord {
   constructor({ baseUrl, githubUrl, dependencies, status, otherDocumentation }) {
     this.key = randexp(/[^\W_]{8}/);
     this.baseUrl = baseUrl;
@@ -12,7 +12,7 @@ export class APIRecord {
   }
 }
 
-export class Environments {
+class Environments {
   constructor({ development, staging, production }) {
     this.development = development;
     this.staging = staging;
@@ -20,7 +20,7 @@ export class Environments {
   }
 }
 
-export class Dependencies {
+class Dependencies {
   constructor({ apis, scripts, databases, packages }) {
     this.apis = apis || [];
     this.scripts = scripts || [];
@@ -29,7 +29,7 @@ export class Dependencies {
   }
 }
 
-export class OtherDocumentation {
+class OtherDocumentation {
   constructor({ businessContext, dataModel }) {
     this.businessContext = businessContext;
     this.dataModel = dataModel;
@@ -44,7 +44,7 @@ export class OtherDocumentation {
 
 // I wonder if the API Id can be extrapolated from
 // data provided :/
-export class DependencyAPI {
+class DependencyAPI {
   constructor({ apiId, apiName, endpointsUsingIt }) {
     this.apiId = apiId;
     this.apiName = apiName;
@@ -52,7 +52,7 @@ export class DependencyAPI {
   }
 }
 
-export class DependencyScript {
+class DependencyScript {
   constructor({ name, githubUrl, description }) {
     this.name = name;
     this.githubUrl = githubUrl;
@@ -60,7 +60,7 @@ export class DependencyScript {
   }
 }
 
-export class DependencyDatabase {
+class DependencyDatabase {
   constructor({ name, type, hostedAt, technicalName }) {
     this.name = name;
     // How it's called within AWS, Google Cloud, Airtable, or onPrem server
@@ -72,9 +72,20 @@ export class DependencyDatabase {
 }
 
 // Dependency Database Endpoint, hence not a lot of detail
-export class Endpoint {
+class Endpoint {
   constructor({ httpMethod, name }) {
     this.httpMethod = httpMethod;
     this.name = name; // Could be a dropdown once I start parsing swagger json
   }
 }
+
+module.exports = {
+  APIRecord,
+  Environments,
+  Dependencies,
+  OtherDocumentation,
+  DependencyDatabase,
+  DependencyAPI,
+  Endpoint,
+  DependencyScript,
+};

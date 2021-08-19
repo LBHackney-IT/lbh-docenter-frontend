@@ -1,4 +1,4 @@
-import scss from "./index.module.scss";
+// import scss from "./index.module.scss";
 import css from "./index.module.css";
 import HackneyLogo from "./HackneyLogo";
 import Link from "next/link";
@@ -16,25 +16,21 @@ const navlinks = [
 ];
 
 const Header = ({ serviceName }) => (
-  <header className="govuk-header" role="banner" data-module="govuk-header">
-    <div id={`${scss["lbh-header__container"]}`} className={` govuk-width-container`}>
-      <div id={scss.headerLogoAndText}>
-        <a href="/" className={css.lbhHeaderTitleLink}>
-          <span>
-            <span className={`govuk-header__logotype ${scss["lbh-header__logotype"]}`}>
-              <HackneyLogo />
-            </span>
-            <span className={css.lbhHeaderServiceName}>{serviceName}</span>
-          </span>
-        </a>
-      </div>
-      <div id={scss.headerNavLinks}>
-        <nav className={css.lbhHeaderLinks}>
+  <header class="lbh-header ">
+    <div class="lbh-header__main">
+      <div class="lbh-container lbh-header__wrapper lbh-header__wrapper--stacked">
+        <div className={`lbh-header__title ${css.logoService}`}>
+          <a href="/" class="lbh-header__title-link">
+            <HackneyLogo />
+          </a>
+          <span className="lbh-header__service-name">{serviceName}</span>
+        </div>
+        <nav id={css.headerNavLinks} className="lbh-header__links">
           {navlinks && (
             <>
               {navlinks.map(({ name, path }) => (
                 <Link href={path} key={path}>
-                  <a className={css.lbhHeaderLinksAnchor}>{name}</a>
+                  <a className={css.lbhHeaderLink}>{name}</a>
                 </Link>
               ))}
             </>

@@ -1,6 +1,6 @@
-import Header from "./Header";
+import Header from "../Header";
 
-const Layout = ({ children }) => (
+const NonDocsLayout = ({ children }) => (
   <>
     <Header serviceName="Connected Documentation" />
 
@@ -12,4 +12,4 @@ const Layout = ({ children }) => (
   </>
 );
 
-export default Layout;
+export default NonDocsLayout;

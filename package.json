@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "mockAPI": "node ./mock-server/mockServer.js",
+    "mockAPITests": "DOCENTER_TESTS=1 node ./mock-server/mockServer.js"
   },
   "dependencies": {
     "govuk-frontend": "^3.13.0",

@@ -1,5 +1,6 @@
 const { generateData } = require("./randomData");
 const jsonServer = require("json-server");
+const { theOnlyRealRecord } = require("./testData");
 
 const mockServerPort = 4000;
 
@@ -13,8 +14,10 @@ const router = jsonServer.router(inMemoryDatabase);
 
 server.use(middlewares);
 
-const realUrl = inMemoryDatabase.apiRecords[0].baseUrl.staging;
-server.get(realUrl, function (_, res) {
+const realUrl = theOnlyRealRecord.baseUrl.staging;
+const fakeUrl = `/mock-endpoint/${theOnlyRealRecord.key}`;
+console.log(`f: localhost:${mockServerPort}${fakeUrl}`);
+server.get(fakeUrl, function (_, res) {
   // for now I only have time to a boring redirect to the same url
   res.status(302).redirect(`${realUrl}swagger/index.html`);
 });

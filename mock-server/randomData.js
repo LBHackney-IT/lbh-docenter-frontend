@@ -7,6 +7,7 @@ const {
   DependencyAPI,
   Endpoint,
   DependencyScript,
+  OtherDocumentation,
 } = require("./dataModels");
 
 const faker = require("faker");
@@ -53,7 +54,7 @@ function createRandomAPIRecord(mockServerPort) {
           ),
       databases: nItems(randInt(1, 4), () => {
         const randName = faker.lorem.words(randInt(2, 4));
-        new DependencyDatabase({
+        return new DependencyDatabase({
           name: randName,
           technicalName: randName.replace(" ", "_") + "_DB",
           type: randexp(/MongoDB|Airtable|S3 Bucket|DynamoDB|PostgreSQL|TSQL/),
@@ -62,6 +63,11 @@ function createRandomAPIRecord(mockServerPort) {
       }),
     }),
     status: "ACTIVE",
+    otherDocumentation: new OtherDocumentation({
+      businessContext: faker.lorem.paragraph(),
+      // though, likely I'd expect md markup
+      dataModel: faker.internet.url(),
+    }),
   });
 }
 

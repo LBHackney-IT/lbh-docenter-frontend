@@ -1,4 +1,3 @@
-// import scss from "./index.module.scss";
 import css from "../../../styles/MainSidebar.module.css";
 import HackneyLogo from "../Header/HackneyLogo";
 

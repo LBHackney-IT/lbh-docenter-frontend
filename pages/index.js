@@ -1,7 +1,11 @@
 import NonDocsLayout from "../components/Layout/Non-Docs";
 import DocsLayout from "../components/Layout/Docs";
 
+// temp import before I set-up data fetching
+const { tempObject } = require("../mock-server/testData");
+
 export default function Home() {
+  console.log(tempObject);
   return (
     <DocsLayout>
       <div>

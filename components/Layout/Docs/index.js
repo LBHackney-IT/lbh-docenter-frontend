@@ -4,6 +4,9 @@ import TableOfContents from "../Sidebar/TableOfContents";
 import css from "./index.module.css";
 import apiContent from "./apiContent.module.css";
 
+// Makes me realise that this is no so much a layout, as it's a page.
+// It's because the only thing that changes within is the text content
+// and not a sub-layout. Will change it into what it is later.
 const DocsLayout = ({ children }) => (
   <>
     <div className={css.docsPage}>

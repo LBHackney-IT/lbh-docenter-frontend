@@ -11,6 +11,7 @@
     "mockAPITests": "DOCENTER_TESTS=1 node ./mock-server/mockServer.js"
   },
   "dependencies": {
+    "dedent-js": "^1.0.1",
     "govuk-frontend": "^3.13.0",
     "lbh-frontend": "^3.5.3",
     "next": "11.0.1",

@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "mockAPI": "node ./mock-server/mockServer.js",
-    "mockAPITests": "DOCENTER_TESTS=1 node ./mock-server/mockServer.js"
+    "mockAPITests": "DOCENTER_TESTS=1 node ./mock-server/mockServer.js",
+    "func": "node ./markdownParser.js"
   },
   "dependencies": {
     "dedent-js": "^1.0.1",

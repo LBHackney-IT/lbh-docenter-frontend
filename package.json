@@ -9,12 +9,13 @@
     "lint": "next lint",
     "mockAPI": "node ./mock-server/mockServer.js",
     "mockAPITests": "DOCENTER_TESTS=1 node ./mock-server/mockServer.js",
-    "func": "node ./markdownParser.js"
+    "func": "node ./utilities/markdownParser.js"
   },
   "dependencies": {
     "dedent-js": "^1.0.1",
     "govuk-frontend": "^3.13.0",
     "lbh-frontend": "^3.5.3",
+    "markdown-it": "^12.2.0",
     "next": "11.0.1",
     "node-sass": "4.14.1",
     "react": "17.0.2",

@@ -66,4 +66,4 @@ the generations. And no matter how much progress one makes, there is always the 
 We are all connected; To each other, biologically. To the earth, chemically. To the rest of the universe atomically.
 `;
 
-export default markupList;
+module.exports = { markupList };

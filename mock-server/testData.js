@@ -68,6 +68,11 @@ const theOnlyRealRecord = new APIRecord({
     ],
   }),
   status: "ACTIVE",
+  otherDocumentation: new OtherDocumentation({
+    businessContext: `# Social Care Case Viewer API
+
+The Social Care Service API provides [service API](http://playbook.hackney.gov.uk/API-Playbook/platform_api_vs_service_api#a-service-apis) capabilities for the [Social Care Frontend](https://github.com/LBHackney-IT/lbh-social-care) which is part of the Social Care system (see [Social Care System Architecture](https://github.com/LBHackney-IT/social-care-architecture/tree/main) for more details).`,
+  }),
 });
 
 // -------------------------------------------------------------------------------------------------------------------

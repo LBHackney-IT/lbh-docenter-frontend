@@ -1,3 +1,7 @@
+/*
+This feature is LOW PRIORITY! Leaving it as a TODO: for the future Pull Request.
+*/
+
 var md = require("markdown-it")();
 const dedent = require("dedent-js");
 const featuresMD = require("./spaceAllMarkup");

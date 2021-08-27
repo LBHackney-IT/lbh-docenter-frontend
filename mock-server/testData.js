@@ -8,10 +8,12 @@ const {
   DependencyAPI,
   Endpoint,
   DependencyScript,
+  OtherDocumentation,
 } = require("./dataModels");
 
 // create 1 semi-real as that's the only data I've got currently
 const theOnlyRealRecord = new APIRecord({
+  name: "Social Care Case Viewer API",
   baseUrl: new Environments({
     // swagger/index.html
     staging: "https://dr03nduqxh.execute-api.eu-west-2.amazonaws.com/staging/",

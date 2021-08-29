@@ -32,6 +32,12 @@ async function request(relPath, { ...options }) {
   }
 }
 
+// options, , ...options
+export function queryAPIRecord(relPath, id) {
+  return request(concatUrl(relPath, id), { method: "GET" });
+}
+
 module.exports = {
   request,
+  queryAPIRecord,
 };

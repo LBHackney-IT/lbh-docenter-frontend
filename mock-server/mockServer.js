@@ -31,6 +31,26 @@ inMemoryDatabase.apiRecords.slice(1).forEach((r) => {
   });
 });
 
+server.get("/apis/:key", (req, res) => {
+  const record = inMemoryDatabase.apiRecords.find((r) => r.key === req.params.key);
+
+  setTimeout(() => {
+    if (record) {
+      res.status(200).json(record);
+    } else {
+      res.status(404).end();
+    }
+  }, 2000);
+});
+
+server.post("/residents/:residentId/help_requests/", function (req, res, next) {
+  req.url = "/help_requests";
+  const residentId = parseInt(req.params.residentId);
+  req.params = {};
+  req.body["residentId"] = residentId;
+  next();
+});
+
 server.use(router);
 
 server.listen(mockServerPort, () => {

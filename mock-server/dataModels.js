@@ -1,8 +1,8 @@
 const randexp = require("randexp").randexp;
 
 class APIRecord {
-  constructor({ name, baseUrl, githubUrl, dependencies, status, otherDocumentation }) {
-    this.key = randexp(/[^\W_]{8}/);
+  constructor({ key, name, baseUrl, githubUrl, dependencies, status, otherDocumentation }) {
+    this.key = key || randexp(/[^\W_]{8}/);
     this.name = name;
     this.baseUrl = baseUrl;
     this.githubUrl = githubUrl;

@@ -29,11 +29,9 @@ const { queryAPIRecord } = require("../data/accessMethods");
 
 // };
 
-queryAPIRecord;
-
 export default function Home() {
   const id = "lbGpbACv";
-  const { data, error } = useSWR(["/apis/", id], queryAPIRecord);
+  const { data, error } = useSWR(["/api-docs/", id], queryAPIRecord);
   return (
     <DocsLayout>
       {/* Not sure yet if there's any point to having this container tempObject && tempObject.map(node => )*/}

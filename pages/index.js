@@ -11,6 +11,7 @@ export default function Home() {
   const id = "lbGpbACv";
   const { data: singleAPI, error: singleAPIError } = useSWR(["/apis/", id], queryAPIRecord);
   const { data: navbarList, error: navbarListError } = useSWR(["/apis"], queryAPIsList);
+
   return (
     <DocsLayout>
       {/* Not sure yet if there's any point to having this container tempObject && tempObject.map(node => )*/}

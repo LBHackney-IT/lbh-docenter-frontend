@@ -20,6 +20,8 @@ const randInt = (mn, mx) => faker.datatype.number({ min: mn, max: mx });
 
 function createRandomAPIRecord(mockServerPort) {
   return new APIRecord({
+    name: faker.random.words(randInt(3, 5)),
+    githubId: randInt(10 ** 9, 10 ** 10 - 1),
     baseUrl: new Environments({
       // swagger/index.html
       staging: `localhost:${mockServerPort}/mock-endpoint/${randexp(/[^\W_]{12}/)}/`,

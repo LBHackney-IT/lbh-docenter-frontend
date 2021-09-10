@@ -12,7 +12,7 @@ export default wrapEndpoint(async ({ params: { id }, headers }) => {
   } else {
     const errMsg = "Error happened while retrieving API Record";
     console.log(errMsg, apiCallResponse.status);
-    nextServerResponseData = { data: [], error: errMsg };
+    nextServerResponseData = { data: null, error: errMsg };
   }
 
   return Response.ok(nextServerResponseData);

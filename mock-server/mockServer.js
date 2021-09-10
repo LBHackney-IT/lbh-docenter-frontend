@@ -31,6 +31,18 @@ inMemoryDatabase.apiRecords.slice(1).forEach((r) => {
   });
 });
 
+server.get("/apis", (req, res) => {
+  const apisList = inMemoryDatabase.apiRecords.map((api) => {
+    return {
+      id: api.key,
+      name: api.name,
+      //type? platform/service/etc.
+    };
+  });
+
+  res.status(200).json(apisList);
+});
+
 server.get("/apis/:key", (req, res) => {
   const record = inMemoryDatabase.apiRecords.find((r) => r.key === req.params.key);
 

@@ -71,3 +71,25 @@ splitOutTopLevelEmphasis(emphasisOverload);
 // Answer is yes, because of runaway regular expressions: (?<![_*])(_|\*)[^ \n]([^\n]+)(\n?[^_*\n]+?)+\1(?![_*])
 // It's already inefficient as hell to do this in regex, but with all the back-tracking it just becomes ridiculous
 // Maybe... not sure yet - I found a way around the catastrophic backtracking.
+
+// const [status, setStatus] = useState();
+
+// Change of approach, but this might still be useful
+// const getNodeKey = (level, title, markdown) => `${level}-${title}-${markdown ? markdown.length : 0}`;
+// // I want to keep the name docTree for descriptiveness
+// function markUpDocTree(docTree, level = 1) {
+//   const { title, markdown, sections } = docTree;
+//   const nodeJSX = (
+//     <div key={getNodeKey(level, title, markdown)} className="layeredSection">
+//       <HeadingN n={level}>{title}</HeadingN>
+//       {markdown && <p>{markdown}</p>}
+//       {sections && sections.map((node) => markUpDocTree(node, level + 1))}
+//     </div>
+//   );
+//   return nodeJSX;
+// }
+//markUpDocTree(tempObject)
+
+// const parseAPIDataIntoReact = () => {
+
+// };

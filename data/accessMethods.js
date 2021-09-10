@@ -37,7 +37,12 @@ export function queryAPIRecord(relPath, id) {
   return request(concatUrl(relPath, id), { method: "GET" });
 }
 
+export function queryAPIsList(path) {
+  return request(path, { method: "GET" });
+}
+
 module.exports = {
   request,
   queryAPIRecord,
+  queryAPIsList,
 };

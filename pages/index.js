@@ -5,39 +5,20 @@ import useSWR from "swr";
 
 // temp import before I set-up data fetching
 const { theOnlyRealRecord: record } = require("../mock-server/testData");
-const { queryAPIRecord } = require("../data/accessMethods");
-
-// const [status, setStatus] = useState();
-
-// Change of approach, but this might still be useful
-// const getNodeKey = (level, title, markdown) => `${level}-${title}-${markdown ? markdown.length : 0}`;
-// // I want to keep the name docTree for descriptiveness
-// function markUpDocTree(docTree, level = 1) {
-//   const { title, markdown, sections } = docTree;
-//   const nodeJSX = (
-//     <div key={getNodeKey(level, title, markdown)} className="layeredSection">
-//       <HeadingN n={level}>{title}</HeadingN>
-//       {markdown && <p>{markdown}</p>}
-//       {sections && sections.map((node) => markUpDocTree(node, level + 1))}
-//     </div>
-//   );
-//   return nodeJSX;
-// }
-//markUpDocTree(tempObject)
-
-// const parseAPIDataIntoReact = () => {
-
-// };
+const { queryAPIRecord, queryAPIsList } = require("../data/accessMethods");
 
 export default function Home() {
   const id = "lbGpbACv";
-  const { data, error } = useSWR(["/apis/", id], queryAPIRecord);
+  const { data: singleAPI, error: singleAPIError } = useSWR(["/apis/", id], queryAPIRecord);
+  const { data: navbarList, error: navbarListError } = useSWR(["/apis"], queryAPIsList);
   return (
     <DocsLayout>
       {/* Not sure yet if there's any point to having this container tempObject && tempObject.map(node => )*/}
       <article className="sectionsContainer">
         {/* Empty marker*/}
-        <p>{data ? <em>{JSON.stringify(data)}</em> : <h1>loading</h1>}</p>
+        <p>{singleAPI ? <em>{JSON.stringify(singleAPI)}</em> : <h1>loading</h1>}</p>
+        <p>-----------------------------------------------------------------------</p>
+        <p>{navbarList ? <em>{JSON.stringify(navbarList)}</em> : <h1>loading</h1>}</p>
         <div className="record-head-container">
           <div className="api-status">{record.status}</div>
           <h1 className="api-title" style={{ marginTop: "0" }}>

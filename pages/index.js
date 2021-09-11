@@ -1,5 +1,6 @@
 import NonDocsLayout from "../components/Layout/Non-Docs";
 import DocsLayout from "../components/Layout/Docs";
+import Loading from "../components/Loading/Loading";
 import React, { useState, useCallback, useEffect } from "react";
 import useSWR from "swr";
 
@@ -17,7 +18,7 @@ export default function Home() {
       {/* Not sure yet if there's any point to having this container tempObject && tempObject.map(node => )*/}
       <article className="sectionsContainer">
         {/* Empty marker*/}
-        <p>{singleAPI ? <em>{JSON.stringify(singleAPI)}</em> : <h1>loading</h1>}</p>
+        <p>{singleAPI ? <em>{JSON.stringify(singleAPI)}</em> : <Loading />}</p>
         <p>-----------------------------------------------------------------------</p>
         <p>{navbarList ? <em>{JSON.stringify(navbarList)}</em> : <h1>loading</h1>}</p>
         <div className="record-head-container">

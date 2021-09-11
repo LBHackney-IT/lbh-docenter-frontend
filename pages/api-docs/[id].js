@@ -30,8 +30,13 @@ export default function APIDoc() {
         {singleAPI ? (
           <>
             <TitleSection apiName={singleAPI.name} apiStatus={singleAPI.status} setEnvironment={() => {}} />
+            <div>
+              {/* <h2>Urls for development</h2> */}
+              <p>Staging: {singleAPI?.baseUrl?.staging}</p>
+              <p>Github: {singleAPI?.githubUrl}</p>
             </div>
             <div class="description-section">
+              <h2>Description</h2>
               <p>{singleAPI?.otherDocumentation.businessContext}</p>
             </div>
             <div className="swagger-section">
@@ -40,7 +45,6 @@ export default function APIDoc() {
                 className="swagger-iframe-container"
                 style={{ width: "100%", paddingRight: "10px", height: "400px", overflow: "hidden" }}
               >
-                {/* "https://dr03nduqxh.execute-api.eu-west-2.amazonaws.com/staging/swagger/index.html"*/}
                 <iframe
                   id="swagger-insert"
                   src={`${singleAPI?.baseUrl.staging}swagger/index.html`}

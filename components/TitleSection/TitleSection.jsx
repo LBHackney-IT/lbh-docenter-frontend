@@ -8,9 +8,9 @@ const TitleSection = ({ apiName, apiStatus, setEnvironment }) => {
       <span className={css["title-container"]}>
         <h1 className={css["api-title"]}>{apiName}</h1>
         <span id={css["environment-selection"]}>
-          {Object.values(environments).map((env) => {
+          {Object.values(environments).map((env, index) => {
             return (
-              <button className={css["environment-button"]} onClick={() => setEnvironment(env)}>
+              <button key={index} className={css["environment-button"]} onClick={() => setEnvironment(env)}>
                 {env}
               </button>
             );

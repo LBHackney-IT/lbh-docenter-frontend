@@ -4,6 +4,7 @@ import Loading from "../../components/Loading/Loading";
 import React, { useState, useCallback, useEffect } from "react";
 import useSWR from "swr";
 import { useRouter } from "next/router";
+import TitleSection from "../../components/TitleSection/TitleSection";
 
 // temp import before I set-up data fetching
 // const { theOnlyRealRecord: record } = require("../../mock-server/testData");
@@ -28,16 +29,7 @@ export default function APIDoc() {
         {/* Empty marker*/}
         {singleAPI ? (
           <>
-            <div className="record-head-container">
-              <div className="api-status">{singleAPI?.status}</div>
-              <h1 className="api-title" style={{ marginTop: "0" }}>
-                {singleAPI?.name}
-              </h1>
-              <span className="environment-selection">
-                <button>Development</button>
-                <button>Staging</button>
-                <button>Production</button>
-              </span>
+            <TitleSection apiName={singleAPI.name} apiStatus={singleAPI.status} setEnvironment={() => {}} />
             </div>
             <div class="description-section">
               <p>{singleAPI?.otherDocumentation.businessContext}</p>

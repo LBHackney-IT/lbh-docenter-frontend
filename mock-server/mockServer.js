@@ -54,7 +54,7 @@ server.get("/apis/:key", (req, res) => {
     } else {
       res.status(404).end();
     }
-  }, 2000);
+  }, 10);
 });
 
 server.post("/residents/:residentId/help_requests/", function (req, res, next) {

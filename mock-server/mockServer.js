@@ -22,14 +22,16 @@ server.get(fakeUrl, function (_, res) {
   res.status(302).redirect(`${realUrl}swagger/index.html`);
 });
 
-inMemoryDatabase.apiRecords.slice(1).forEach((r) => {
-  console.log(r.baseUrl.staging);
-  const relativeUrl = r.baseUrl.staging.split(mockServerPort)[1];
-  server.get(relativeUrl, function (_, res) {
-    // for now I only have time to a boring redirect to the same url
-    res.status(302).redirect(`${realUrl}swagger/index.html`);
-  });
-});
+// I think, swagger is using X-Frame-Options header to prevent
+// this from being possible
+// inMemoryDatabase.apiRecords.slice(1).forEach((r) => {
+//   console.log(r.baseUrl.staging);
+//   const relativeUrl = r.baseUrl.staging.split(mockServerPort)[1];
+//   server.get(`${relativeUrl}swagger/index.html`, function (_, res) {
+//     // for now I only have time to a boring redirect to the same url
+//     res.status(302).redirect(`${realUrl}swagger/index.html`);
+//   });
+// });
 
 server.get("/apis", (req, res) => {
   const apisList = inMemoryDatabase.apiRecords.map((api) => {

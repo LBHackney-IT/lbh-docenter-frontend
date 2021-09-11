@@ -24,7 +24,7 @@ function createRandomAPIRecord(mockServerPort) {
     githubId: randInt(10 ** 9, 10 ** 10 - 1),
     baseUrl: new Environments({
       // swagger/index.html
-      staging: `localhost:${mockServerPort}/mock-endpoint/${randexp(/[^\W_]{12}/)}/`,
+      staging: "https://dr03nduqxh.execute-api.eu-west-2.amazonaws.com/staging/", //`localhost:${mockServerPort}/mock-endpoint/${randexp(/[^\W_]{12}/)}/`,
     }),
     githubUrl: "https://github.com/LBHackney-IT/social-care-case-viewer-api",
     dependencies: new Dependencies({

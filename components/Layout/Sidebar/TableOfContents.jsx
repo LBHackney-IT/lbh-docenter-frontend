@@ -1,6 +1,9 @@
 import css from "../../../styles/TOCSidebar.module.css";
+import Link from "next/link";
 
-const TableOfContents = ({}) => (
+// Should go recursively as the data is nested?
+// But not sure if MVP will contain that
+const TableOfContents = ({ tocItems }) => (
   <div className={css.toc}>
     <div className={css.tocBorder}>
       <p>Toc</p>
@@ -10,9 +13,11 @@ const TableOfContents = ({}) => (
           listStyleType: "none",
         }}
       >
-        {[...Array(10).keys()].map((num) => (
-          <li key={num}>
-            <a href="#">Section {num}</a>
+        {tocItems.map((item) => (
+          <li key={item.name}>
+            <Link href={`#${item.name}`}>
+              <a>{item.name}</a>
+            </Link>
           </li>
         ))}
       </ul>

@@ -1,7 +1,8 @@
 import css from "../../../styles/MainSidebar.module.css";
 import HackneyLogo from "../Header/HackneyLogo";
+import Link from "next/link";
 
-const MainSidebar = ({}) => (
+const MainSidebar = ({ navbarItems }) => (
   <aside className={css.sidebarWrapper}>
     <div className={css.sidebar}>
       <a href="/" className={css.sidebarLogo}>
@@ -12,11 +13,11 @@ const MainSidebar = ({}) => (
       </a>
       <nav className={css.apiSelection}>
         <ul className={css.apiNavLinksList}>
-          {[...Array(25).keys()].map((num) => (
-            <li key={num}>
-              <a href="#" className={css.apiLink}>
-                API number {num}
-              </a>
+          {navbarItems?.map((item) => (
+            <li key={item.id}>
+              <Link as={`/api-docs/${item.id}`} href="/api-docs/[id]">
+                <a>{item.name}</a>
+              </Link>
             </li>
           ))}
         </ul>

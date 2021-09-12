@@ -21,3 +21,20 @@
   min-width: 116px;
 }
 
+.clipboard-button-cell {
+  padding-left: 10px;
+}
+
+.clipboard-button,
+.clipboard-button:active {
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  padding: 3px 5px;
+}
+
+.clipboard-button:active {
+  transform: scale(0.9);
+}
+

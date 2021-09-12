@@ -5,6 +5,7 @@ import React, { useState, useCallback, useEffect } from "react";
 import useSWR from "swr";
 import { useRouter } from "next/router";
 import TitleSection from "../../components/TitleSection/TitleSection";
+import UrlsSection from "../../components/UrlsSection/UrlsSection";
 import { environments } from "../../utilities/globalConstants";
 
 // temp import before I set-up data fetching
@@ -38,11 +39,7 @@ export default function APIDoc() {
               setEnvironment={setEnvironment}
               environment={environment}
             />
-            <div>
-              {/* <h2>Urls for development</h2> */}
-              <p>Staging: {singleAPI?.baseUrl?.staging}</p>
-              <p>Github: {singleAPI?.githubUrl}</p>
-            </div>
+            <UrlsSection baseUrl={singleAPI?.baseUrl} environment={environment} githubUrl={singleAPI?.githubUrl} />
             <div class="description-section">
               <h2>Description</h2>
               <p>{singleAPI?.otherDocumentation.businessContext}</p>

@@ -1,0 +1,23 @@
+.project-urls-table {
+  margin-top: 3em;
+  /* border: 2px solid #204041; */
+  border-radius: 5px;
+  border-collapse: separate;
+  border-spacing: 0 5px;
+}
+
+.project-urls-table tbody tr {
+  /* border-right: 2px solid #204041; */
+  margin-left: 0;
+}
+
+.project-urls-table tbody th {
+  box-sizing: border-box;
+  padding: 0 10px 0 0;
+  text-align: start;
+  font-weight: 500;
+  margin-left: 0;
+  color: #2b585a;
+  min-width: 116px;
+}
+

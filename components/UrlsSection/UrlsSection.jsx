@@ -8,7 +8,7 @@ const UrlsSection = ({ baseUrl, environment, githubUrl }) => {
       <tbody>
         <tr>
           <th>Github url:</th>
-          <td>{githubUrl ?? "Not provided"}</td>
+          <td className={css["url-cell"]}>{githubUrl ?? "Not provided"}</td>
           <td className={css["clipboard-button-cell"]}>
             <button className={css["clipboard-button"]} onClick={copyToClipboard}>
               Copy
@@ -17,7 +17,7 @@ const UrlsSection = ({ baseUrl, environment, githubUrl }) => {
         </tr>
         <tr>
           <th>{environment}:</th>
-          <td>{baseUrl[environmentKey] ?? "Not provided"}</td>
+          <td className={css["url-cell"]}>{baseUrl[environmentKey] ?? "Not provided"}</td>
           <td className={css["clipboard-button-cell"]}>
             <button className={css["clipboard-button"]} onClick={copyToClipboard}>
               Copy
@@ -30,5 +30,3 @@ const UrlsSection = ({ baseUrl, environment, githubUrl }) => {
 };
 
 export default UrlsSection;
-
-//className={css["url-cell"]}

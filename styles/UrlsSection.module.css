@@ -1,5 +1,5 @@
 .project-urls-table {
-  margin-top: 3em;
+  margin-top: 2.5em;
   /* border: 2px solid #204041; */
   border-radius: 5px;
   border-collapse: separate;
@@ -21,8 +21,12 @@
   min-width: 116px;
 }
 
+.url-cell {
+  color: rgba(0, 0, 0, 0.95);
+}
+
 .clipboard-button-cell {
-  padding-left: 10px;
+  padding-left: 20px;
 }
 
 .clipboard-button,

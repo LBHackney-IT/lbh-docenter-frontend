@@ -35,3 +35,37 @@
   display: flex;
   align-items: center;
 }
+
+.api-status-tag,
+.api-status-tag--active,
+.api-status-tag--decommissioning,
+.api-status-tag--deprecated,
+.api-status-tag--unknown {
+  align-self: flex-start;
+  padding: 4px 15px;
+  margin-bottom: 5px;
+  color: rgba(0, 0, 0, 0.85);
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-size: 75%;
+  font-weight: 700;
+  color: #fff;
+}
+
+.api-status-tag--active {
+  background-color: #76b933; /* #8adc39;*/ /* chartreuse;*/
+}
+
+.api-status-tag--deprecated {
+  background-color: darkred;
+  color: #fff;
+}
+
+.api-status-tag--decommissioning {
+  background-color: #e4ab00; /*f4b700 e4ab00 cc9800*/
+}
+
+.api-status-tag--unknown {
+  background-color: #888;
+}
+

@@ -4,7 +4,7 @@ import { environments } from "../../utilities/globalConstants";
 const TitleSection = ({ apiName, apiStatus, setEnvironment }) => {
   return (
     <div className={css["record-head-container"]}>
-      <span className={css["api-status-tag"]}>{apiStatus}</span>
+      <span className={css[`api-status-tag--${apiStatus.toLowerCase()}`]}>{apiStatus.toUpperCase()}</span>
       <span className={css["title-container"]}>
         <h1 className={css["api-title"]}>{apiName}</h1>
         <span id={css["environment-selection"]}>

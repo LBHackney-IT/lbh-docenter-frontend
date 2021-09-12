@@ -1,20 +1,23 @@
-function copyToClipboard(event) {
-  /* Get the text field */
-  console.log(event);
+function writeToClipboard(extractor) {
+  /* Could become more complex depending on requirements
+  hence separating this out into separate function. */
+  try {
+    const targetText = extractor();
+    //There are no guarantees of a browser supporting this
+    navigator.clipboard.writeText(targetText);
+    return true;
+  } catch {
+    return false;
+  }
+}
 
-  //   var copyText = document.getElementById("myInput");
-
-  //   /* Select the text field */
-  //   copyText.select();
-  //   copyText.setSelectionRange(0, 99999); /* For mobile devices */
-
-  //   /* Copy the text inside the text field */
-  //   navigator.clipboard.writeText(copyText.value);
-
-  //   /* Alert the copied text */
-  //   alert("Copied the text: " + copyText.value); el.querySelector("#child")
+// Might make use of boolean output in the future to indicate to the user that the text was copied
+function copyUrlsSectionUrl(event) {
+  const textExtractor = () => event.target.closest("tr").querySelector(".url-cell").innerText;
+  const isSuccess = writeToClipboard(textExtractor);
+  return isSuccess;
 }
 
 module.exports = {
-  copyToClipboard,
+  copyUrlsSectionUrl,
 };

@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import TitleSection from "../../components/TitleSection/TitleSection";
 import UrlsSection from "../../components/UrlsSection/UrlsSection";
 import { environments } from "../../utilities/globalConstants";
+import DependenciesSection from "../../components/DependenciesSection/DependenciesSection";
 
 // temp import before I set-up data fetching
 // const { theOnlyRealRecord: record } = require("../../mock-server/testData");
@@ -58,7 +59,7 @@ export default function APIDoc() {
                   <p>Your browser does not support iframes.</p>
                 </iframe>
               </div>
-            </div>
+            <DependenciesSection dependencies={singleAPI?.dependencies} />
           </>
         ) : (
           <Loading />

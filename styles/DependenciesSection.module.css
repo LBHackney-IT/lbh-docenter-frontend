@@ -1,0 +1,33 @@
+.database-dependency {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.names-row,
+.database-info {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-top: 0.5em;
+}
+
+.key-val-pair {
+  display: flex;
+  flex-flow: row nowrap;
+  display: inline-block;
+  margin: 0;
+  margin-right: 20px;
+  flex: 0 0 30%;
+}
+
+.key-val-pair dt,
+.key-val-pair dd {
+  display: inline-block;
+  margin: 0;
+}
+
+.key-val-pair dt {
+  margin-right: 10px;
+  color: #2b585a;
+  font-weight: 500;
+}
+

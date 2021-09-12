@@ -15,18 +15,22 @@
 }
 
 .environment-button {
-  background-color: #9cb5ca;
-  padding: 3px 5px;
+  font-weight: 700;
+  background-color: #408184; /*#5b9fa2;*/
+  color: #fff;
+  padding: 3px 7px;
   border: none;
   border-radius: 3px;
   margin: 0;
   margin-left: 5px;
-  border-bottom: 2px solid rgba(0, 0, 0, 50%);
+  border-bottom: 3px solid rgba(0, 0, 0, 50%);
+  box-sizing: border-box;
 }
 
 .environment-button:active {
   box-shadow: 0 0 0 2pt #ffc845;
   border-radius: 3px;
+  border-bottom: 1px solid rgba(0, 0, 0, 50%);
 }
 
 #environment-selection {

@@ -32,9 +32,14 @@
   border-radius: 5px;
   color: #fff;
   padding: 3px 5px;
+  visibility: hidden;
 }
 
 .clipboard-button:active {
   transform: scale(0.9);
 }
 
+.project-urls-table tr:hover .clipboard-button {
+  /* border-right: 2px solid #204041; */
+  visibility: visible;
+}

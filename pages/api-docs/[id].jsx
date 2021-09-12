@@ -5,6 +5,7 @@ import React, { useState, useCallback, useEffect } from "react";
 import useSWR from "swr";
 import { useRouter } from "next/router";
 import TitleSection from "../../components/TitleSection/TitleSection";
+import { environments } from "../../utilities/globalConstants";
 
 // temp import before I set-up data fetching
 // const { theOnlyRealRecord: record } = require("../../mock-server/testData");
@@ -13,6 +14,8 @@ const { queryAPIRecord, queryAPIsList } = require("../../data/accessMethods");
 export default function APIDoc() {
   const router = useRouter();
   const { id } = router.query;
+
+  const [environment, setEnvironment] = useState(environments.staging);
 
   // const id = "lbGpbACv";
   const { data: singleAPI, error: singleAPIError } = useSWR(["/apis/", id], queryAPIRecord);
@@ -29,7 +32,12 @@ export default function APIDoc() {
         {/* Empty marker*/}
         {singleAPI ? (
           <>
-            <TitleSection apiName={singleAPI.name} apiStatus={singleAPI.status} setEnvironment={() => {}} />
+            <TitleSection
+              apiName={singleAPI.name}
+              apiStatus={singleAPI.status}
+              setEnvironment={setEnvironment}
+              environment={environment}
+            />
             <div>
               {/* <h2>Urls for development</h2> */}
               <p>Staging: {singleAPI?.baseUrl?.staging}</p>

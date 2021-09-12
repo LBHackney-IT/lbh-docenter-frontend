@@ -14,7 +14,9 @@
   margin: 0;
 }
 
-.environment-button {
+.environment-button,
+.environment-button:active,
+.environment-button--selected {
   font-weight: 700;
   background-color: #408184; /*#5b9fa2;*/
   color: #fff;
@@ -29,8 +31,11 @@
 
 .environment-button:active {
   box-shadow: 0 0 0 2pt #ffc845;
-  border-radius: 3px;
   border-bottom: 1px solid rgba(0, 0, 0, 50%);
+}
+
+.environment-button--selected {
+  background: #20c701;
 }
 
 #environment-selection {
@@ -72,4 +77,3 @@
 .api-status-tag--unknown {
   background-color: #888;
 }
-

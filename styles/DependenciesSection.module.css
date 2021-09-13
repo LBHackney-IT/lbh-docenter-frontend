@@ -1,3 +1,9 @@
+.database-dependencies-container h4 {
+  color: #2b585a;
+  font-weight: 700;
+  font-size: 100%;
+}
+
 .database-dependency {
   display: flex;
   flex-flow: column nowrap;
@@ -31,3 +37,28 @@
   font-weight: 500;
 }
 
+.endpoints-using-db th {
+  text-align: start;
+  color: #2b585a;
+  font-weight: 500;
+}
+
+.endpoints-using-db td,
+.endpoints-using-db th {
+  padding: 10px 0;
+}
+
+.endpoints-using-db tr:not(:last-child) {
+  border-bottom: 1px solid #dadde1;
+}
+
+.endpoints-using-db {
+  margin-top: 0.3em;
+  /* border-spacing: 0px 10px; */
+  border-collapse: collapse;
+}
+
+.endpoints-using-db td:not(:first-child),
+.endpoints-using-db th:not(:first-child) {
+  padding-left: 20px;
+}

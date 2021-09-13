@@ -63,21 +63,23 @@ class DependencyScript {
 }
 
 class DependencyDatabase {
-  constructor({ name, type, hostedAt, technicalName }) {
+  constructor({ name, type, hostedAt, technicalName, endpointsUsingIt }) {
     this.name = name;
     // How it's called within AWS, Google Cloud, Airtable, or onPrem server
     this.technicalName = technicalName;
     this.type = type;
     this.hostedAt = hostedAt;
+    this.endpointsUsingIt = endpointsUsingIt;
     // Should I include endpointsUsingIt? Sounds useful
   }
 }
 
 // Dependency Database Endpoint, hence not a lot of detail
 class Endpoint {
-  constructor({ httpMethod, name }) {
+  constructor({ httpMethod, name, path }) {
     this.httpMethod = httpMethod;
     this.name = name; // Could be a dropdown once I start parsing swagger json
+    this.path = path;
   }
 }
 

@@ -1,0 +1,58 @@
+.database-dependency {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.names-row,
+.database-info {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-top: 0.5em;
+}
+
+.key-val-pair {
+  display: flex;
+  flex-flow: row nowrap;
+  display: inline-block;
+  margin: 0;
+  margin-right: 20px;
+  flex: 0 0 30%;
+}
+
+.key-val-pair dt,
+.key-val-pair dd {
+  display: inline-block;
+  margin: 0;
+}
+
+.key-val-pair dt {
+  margin-right: 10px;
+  color: #2b585a;
+  font-weight: 500;
+}
+
+.endpoints-using-db th {
+  text-align: start;
+  color: #2b585a;
+  font-weight: 500;
+}
+
+.endpoints-using-db td,
+.endpoints-using-db th {
+  padding: 10px 0;
+}
+
+.endpoints-using-db tr:not(:last-child) {
+  border-bottom: 1px solid #dadde1;
+}
+
+.endpoints-using-db {
+  margin-top: 0.3em;
+  /* border-spacing: 0px 10px; */
+  border-collapse: collapse;
+}
+
+.endpoints-using-db td:not(:first-child),
+.endpoints-using-db th:not(:first-child) {
+  padding-left: 20px;
+}

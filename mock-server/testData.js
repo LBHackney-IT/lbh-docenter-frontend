@@ -57,6 +57,16 @@ const theOnlyRealRecord = new APIRecord({
         technicalName: "SCCV_MONGO_DB",
         type: "MongoDB",
         hostedAt: "AWS DocumentDB",
+        endpointsUsingIt: [
+          new Endpoint({
+            httpMethod: "GET",
+            name: "Get Case Notes",
+            path: "/api/v1/cases",
+          }),
+          new Endpoint({ httpMethod: "POST", name: "Create Case Note", path: "/api/v1/cases" }),
+          new Endpoint({ httpMethod: "DELETE", name: "Delete Case Note", path: "/api/v1/cases/{Id}" }),
+        ],
+        // name endpoints using it
         // "AWS AccountName1 EC2 instances",
       }),
       new DependencyDatabase({
@@ -64,15 +74,29 @@ const theOnlyRealRecord = new APIRecord({
         technicalName: "who_knows",
         type: "PostgreSQL",
         hostedAt: "AWS RDS Postgresql",
+        endpointsUsingIt: [
+          new Endpoint({
+            httpMethod: "GET",
+            name: "Get Process Document",
+          }),
+          new Endpoint({
+            httpMethod: "POST",
+            name: "Create Process Document",
+            path: "/api/v1/residents/case-statuses",
+          }),
+          new Endpoint({
+            httpMethod: "GET",
+            name: "List Process Documents",
+            path: "/api/v1/residents/{personId}/casestatuses",
+          }),
+        ],
         // maybe it would be useful to have: AWS service
       }),
     ],
   }),
   status: "ACTIVE",
   otherDocumentation: new OtherDocumentation({
-    businessContext: `# Social Care Case Viewer API
-
-The Social Care Service API provides [service API](http://playbook.hackney.gov.uk/API-Playbook/platform_api_vs_service_api#a-service-apis) capabilities for the [Social Care Frontend](https://github.com/LBHackney-IT/lbh-social-care) which is part of the Social Care system (see [Social Care System Architecture](https://github.com/LBHackney-IT/social-care-architecture/tree/main) for more details).`,
+    businessContext: `The Social Care Service API provides [service API](http://playbook.hackney.gov.uk/API-Playbook/platform_api_vs_service_api#a-service-apis) capabilities for the [Social Care Frontend](https://github.com/LBHackney-IT/lbh-social-care) which is part of the Social Care system (see [Social Care System Architecture](https://github.com/LBHackney-IT/social-care-architecture/tree/main) for more details).`,
   }),
 });
 

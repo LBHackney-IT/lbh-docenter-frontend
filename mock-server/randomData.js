@@ -64,7 +64,7 @@ function createRandomAPIRecord(mockServerPort) {
         });
       }),
     }),
-    status: "ACTIVE",
+    status: randexp(/Active|Decommissioning|Deprecated|Unknown/), //randexp(/ACTIVE|DECOMMISSIONING|DEPRECATED|UNKNOWN/),
     otherDocumentation: new OtherDocumentation({
       businessContext: faker.lorem.paragraph(),
       // though, likely I'd expect md markup

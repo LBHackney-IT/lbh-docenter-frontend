@@ -21,8 +21,8 @@
 }
 
 .sidebarLogo {
-  max-height: 101px;
-  min-height: 101px;
+  max-height: 100px;
+  min-height: 100px;
   padding-bottom: 21px;
   position: relative;
   /* padding-bottom: 1.3125rem; */

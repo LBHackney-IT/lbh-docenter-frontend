@@ -4,6 +4,10 @@ import Loading from "../../components/Loading/Loading";
 import React, { useState, useCallback, useEffect } from "react";
 import useSWR from "swr";
 import { useRouter } from "next/router";
+import TitleSection from "../../components/TitleSection/TitleSection";
+import UrlsSection from "../../components/UrlsSection/UrlsSection";
+import { environments } from "../../utilities/globalConstants";
+import DependenciesSection from "../../components/DependenciesSection/DependenciesSection";
 
 // temp import before I set-up data fetching
 // const { theOnlyRealRecord: record } = require("../../mock-server/testData");
@@ -12,6 +16,8 @@ const { queryAPIRecord, queryAPIsList } = require("../../data/accessMethods");
 export default function APIDoc() {
   const router = useRouter();
   const { id } = router.query;
+
+  const [environment, setEnvironment] = useState(environments.staging);
 
   // const id = "lbGpbACv";
   const { data: singleAPI, error: singleAPIError } = useSWR(["/apis/", id], queryAPIRecord);
@@ -28,19 +34,16 @@ export default function APIDoc() {
         {/* Empty marker*/}
         {singleAPI ? (
           <>
-            <div className="record-head-container">
-              <div className="api-status">{singleAPI?.status}</div>
-              <h1 className="api-title" style={{ marginTop: "0" }}>
-                {singleAPI?.name}
-              </h1>
-              <span className="environment-selection">
-                <button>Development</button>
-                <button>Staging</button>
-                <button>Production</button>
-              </span>
-            </div>
+            <TitleSection
+              apiName={singleAPI.name}
+              apiStatus={singleAPI.status}
+              setEnvironment={setEnvironment}
+              environment={environment}
+            />
+            <UrlsSection baseUrl={singleAPI?.baseUrl} environment={environment} githubUrl={singleAPI?.githubUrl} />
             <div class="description-section">
-              <p>{singleAPI?.otherDocumentation.businessContext}</p>
+              <h2>Description</h2>
+              <p>{singleAPI?.otherDocumentation?.businessContext ?? "Description was not found or provided."}</p>
             </div>
             <div className="swagger-section">
               <h2>Swagger Information</h2>
@@ -48,7 +51,6 @@ export default function APIDoc() {
                 className="swagger-iframe-container"
                 style={{ width: "100%", paddingRight: "10px", height: "400px", overflow: "hidden" }}
               >
-                {/* "https://dr03nduqxh.execute-api.eu-west-2.amazonaws.com/staging/swagger/index.html"*/}
                 <iframe
                   id="swagger-insert"
                   src={`${singleAPI?.baseUrl.staging}swagger/index.html`}
@@ -58,6 +60,7 @@ export default function APIDoc() {
                 </iframe>
               </div>
             </div>
+            <DependenciesSection dependencies={singleAPI?.dependencies} />
           </>
         ) : (
           <Loading />

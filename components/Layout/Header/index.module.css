@@ -22,3 +22,7 @@
 .logoService span {
   padding-top: 0;
 }
+
+#main-header {
+  background: #212121; /*1b1b1b*/
+}

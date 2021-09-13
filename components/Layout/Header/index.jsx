@@ -17,7 +17,7 @@ const navlinks = [
 
 const Header = ({ serviceName }) => (
   <header className="lbh-header ">
-    <div className="lbh-header__main">
+    <div id={css["main-header"]} className="lbh-header__main">
       <div className="lbh-container lbh-header__wrapper lbh-header__wrapper--stacked">
         <div className={`lbh-header__title ${css.logoService}`}>
           <a href="/" className="lbh-header__title-link">

@@ -1,0 +1,53 @@
+.urls-section-container h2 {
+  margin-top: 1em;
+}
+
+.project-urls-table {
+  /* margin-top: 2em; */
+  /* border: 2px solid #204041; */
+  border-radius: 5px;
+  border-collapse: separate;
+  border-spacing: 0 5px;
+}
+
+.project-urls-table tbody tr {
+  /* border-right: 2px solid #204041; */
+  margin-left: 0;
+}
+
+.project-urls-table tbody th {
+  box-sizing: border-box;
+  padding: 0 10px 0 0;
+  text-align: start;
+  font-weight: 500;
+  margin-left: 0;
+  color: #2b585a;
+  min-width: 116px;
+}
+
+.url-cell {
+  color: rgba(0, 0, 0, 0.95);
+}
+
+.clipboard-button-cell {
+  padding-left: 20px;
+}
+
+.clipboard-button,
+.clipboard-button:active {
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  padding: 3px 5px;
+  visibility: hidden;
+}
+
+.clipboard-button:active {
+  transform: scale(0.9);
+}
+
+.project-urls-table tr:hover .clipboard-button {
+  /* border-right: 2px solid #204041; */
+  visibility: visible;
+}

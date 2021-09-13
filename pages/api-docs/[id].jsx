@@ -43,7 +43,7 @@ export default function APIDoc() {
             <UrlsSection baseUrl={singleAPI?.baseUrl} environment={environment} githubUrl={singleAPI?.githubUrl} />
             <div class="description-section">
               <h2>Description</h2>
-              <p>{singleAPI?.otherDocumentation.businessContext}</p>
+              <p>{singleAPI?.otherDocumentation?.businessContext ?? "Description was not found or provided."}</p>
             </div>
             <div className="swagger-section">
               <h2>Swagger Information</h2>
@@ -59,6 +59,7 @@ export default function APIDoc() {
                   <p>Your browser does not support iframes.</p>
                 </iframe>
               </div>
+            </div>
             <DependenciesSection dependencies={singleAPI?.dependencies} />
           </>
         ) : (

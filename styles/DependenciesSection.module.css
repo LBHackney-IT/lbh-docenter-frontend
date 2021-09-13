@@ -3,3 +3,15 @@
   font-weight: 700;
   font-size: 100%;
 }
+
+.db-item {
+  box-sizing: border-box;
+}
+
+.db-item:not(:last-child)::after {
+  content: "";
+  display: inline-block;
+  width: 75%;
+  margin-top: 20px;
+  border-bottom: 2px dotted #41866c;
+}

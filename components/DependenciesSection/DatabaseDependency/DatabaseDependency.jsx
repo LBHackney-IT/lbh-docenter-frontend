@@ -1,8 +1,8 @@
 import css from "../../../styles/DatabaseDependency.module.css";
 
-const DatabaseDependency = ({ database }) => {
+const DatabaseDependency = ({ database, extraClass }) => {
   return (
-    <div className={css["database-dependency"]}>
+    <div className={`${css["database-dependency"]} ${extraClass}`}>
       <h4>Database Info:</h4>
       <div className={css["names-row"]}>
         <dl className={css["key-val-pair"]}>

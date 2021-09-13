@@ -9,7 +9,9 @@ const DependenciesSection = ({ dependencies }) => {
       <h2>Dependencies</h2>
       <div className={css["database-dependencies-container"]}>
         <h3>Databases</h3>
-        <DatabaseDependency database={dbDependency} />
+        {dependencies.databases.map((db) => (
+          <DatabaseDependency database={db} extraClass={css["db-item"]} />
+        ))}
       </div>
     </div>
   );

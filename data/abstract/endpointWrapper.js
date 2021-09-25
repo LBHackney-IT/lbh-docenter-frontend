@@ -2,8 +2,14 @@ import Response from "./httpResponses";
 
 export default function wrapEndpoint(endpointAction) {
   return async (req, res) => {
-    const forward = (response) =>
-      res.writeHead(response.statusCode, { ...res.headers, ...response.headers }).end(response.body);
+    function send(response) {
+      Object.entries(response.headers).forEach(([key, value]) => res.setHeader(key, value));
+      res.status(response.statusCode);
+      return response.body ? res.send(response.body) : res.end();
+    }
+
+    // const forward = (response) =>
+    //   res.writeHead(response.statusCode, { ...res.headers, ...response.headers }).end(response.body);
 
     try {
       const response = await endpointAction({

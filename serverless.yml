@@ -2,7 +2,7 @@ service: docenter-frontend
 
 provider:
   name: aws
-  runtime: nodejs14.17.4
+  runtime: nodejs14.x
   region: eu-west-2
   stage: ${opt:stage}
   apiGateway:

@@ -5,12 +5,14 @@ import Link from "next/link";
 const MainSidebar = ({ navbarItems }) => (
   <aside className={css.sidebarWrapper}>
     <div className={css.sidebar}>
-      <a href="/" className={css.sidebarLogo}>
-        <div className={css.pointlessContainer}>
-          <HackneyLogo withinHeader={false} />
-          <p className={css.sidebarServiceName}>Connected Documentation</p>
-        </div>
-      </a>
+      <Link href="/">
+        <a className={css.sidebarLogo}>
+          <div className={css.pointlessContainer}>
+            <HackneyLogo withinHeader={false} />
+            <p className={css.sidebarServiceName}>Connected Documentation</p>
+          </div>
+        </a>
+      </Link>
       <nav className={css.apiSelection}>
         <ul className={css.apiNavLinksList}>
           {navbarItems?.map((item) => (

@@ -1,0 +1,92 @@
+version: 2.1
+
+orbs:
+  aws-cli: circleci/aws-cli@1.0.0
+  aws_assume_role: lbh-hackit/aws_assume_role@0.1.0
+
+executors:
+  node-executor:
+    docker:
+      - image: circleci/node:14.17.4
+  docker-python:
+    docker:
+      - image: circleci/python:3.7
+
+references:
+  workspace_root: &workspace_root "~"
+  attach_workspace: &attach_workspace
+    attach_workspace:
+      at: *workspace_root
+
+jobs:
+  install-dependencies:
+    executor: node-executor
+    steps:
+      - *attach_workspace
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Dependencies
+          command: yarn --frozen-lockfile
+      - persist_to_workspace:
+          root: *workspace_root
+          paths: .
+
+  build:
+    executor: node-executor
+    steps:
+      - *attach_workspace
+      - run:
+          name: test step
+          command: ls
+      - run:
+          name: Build app
+          command: yarn build
+      - persist_to_workspace:
+          root: *workspace_root
+          paths:
+            - project/build
+
+  build-deploy-staging:
+    executor: aws-cli/default
+    steps:
+      - *attach_workspace
+      - run:
+          name: deploy
+          command: yarn --frozen-lockfile --production=true && sudo npm i -g serverless && sls deploy --stage staging
+
+  assume-role-staging:
+    executor: docker-python
+    steps:
+      - checkout
+      - aws_assume_role/assume_role:
+          account: $AWS_ACCOUNT_STAGING
+          profile_name: default
+          role: "LBH_Circle_CI_Deployment_Role"
+      - persist_to_workspace:
+          root: *workspace_root
+          paths:
+            - .aws
+
+workflows:
+  version: 2
+  continuous-delivery:
+    jobs:
+      - install-dependencies
+      - build:
+          requires:
+            - install-dependencies
+      - assume-role-staging:
+          context: api-assume-role-staging-context
+          requires:
+            - build
+          filters:
+            branches:
+              only: main
+      - build-deploy-staging:
+          requires:
+            - assume-role-staging
+          filters:
+            branches:
+              only: main

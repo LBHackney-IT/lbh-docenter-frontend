@@ -71,19 +71,17 @@ workflows:
   continuous-delivery:
     jobs:
       - install-dependencies
-      - build:
-          requires:
-            - unit-tests
+      - build
       - assume-role-staging:
           context: api-assume-role-staging-context
           requires:
             - build
-          filters:
-            branches:
-              only: main
+          # filters:
+          #   branches:
+          #     only: main
       - build-deploy-staging:
           requires:
             - assume-role-staging
-          filters:
-            branches:
-              only: main
+          # filters:
+          #   branches:
+          #     only: main

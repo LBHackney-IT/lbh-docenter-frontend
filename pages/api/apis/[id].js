@@ -3,7 +3,11 @@ import Response from "../../../data/abstract/httpResponses";
 
 export default wrapEndpoint(async ({ params: { id }, headers }) => {
   const apiBaseUrl = process.env.API_BASE_URL;
-  const apiCallResponse = await fetch(`${apiBaseUrl}/apis/${id}`);
+  const apiCallResponse = await fetch(`${apiBaseUrl}/apis/${id}`, {
+    headers: {
+      "x-api-key": process.env.API_KEY,
+    },
+  });
 
   if (apiCallResponse.ok) {
     const apiDocRecord = await Promise.resolve(apiCallResponse.json());

@@ -41,7 +41,7 @@ export default function APIDoc() {
               environment={environment}
             />
             <UrlsSection baseUrl={singleAPI?.baseUrl} environment={environment} githubUrl={singleAPI?.githubUrl} />
-            <div class="description-section">
+            <div className="description-section">
               <h2>Description</h2>
               <p>{singleAPI?.otherDocumentation?.businessContext ?? "Description was not found or provided."}</p>
             </div>

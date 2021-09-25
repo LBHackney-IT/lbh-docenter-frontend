@@ -20,9 +20,11 @@ const Header = ({ serviceName }) => (
     <div id={css["main-header"]} className="lbh-header__main">
       <div className="lbh-container lbh-header__wrapper lbh-header__wrapper--stacked">
         <div className={`lbh-header__title ${css.logoService}`}>
-          <a href="/" className="lbh-header__title-link">
-            <HackneyLogo />
-          </a>
+          <Link href="/">
+            <a className="lbh-header__title-link">
+              <HackneyLogo />
+            </a>
+          </Link>
           <span className="lbh-header__service-name">{serviceName}</span>
         </div>
         <nav id={css.headerNavLinks} className="lbh-header__links">

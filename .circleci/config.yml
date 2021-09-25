@@ -38,6 +38,9 @@ jobs:
     steps:
       - *attach_workspace
       - run:
+          name: test step
+          command: ls
+      - run:
           name: Build app
           command: yarn build
       - persist_to_workspace:
@@ -71,7 +74,9 @@ workflows:
   continuous-delivery:
     jobs:
       - install-dependencies
-      - build
+      - build:
+          requires:
+            - install-dependencies
       - assume-role-staging:
           context: api-assume-role-staging-context
           requires:

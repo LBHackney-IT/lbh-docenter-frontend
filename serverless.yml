@@ -21,6 +21,8 @@ functions:
       include:
         - entrypoint.js
         - next.config.js
+        - pages/**
+        - styles/**
         - public/**
         - build/_next/**
         - node_modules/**

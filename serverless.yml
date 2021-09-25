@@ -14,7 +14,7 @@ package:
     - ./**
 
 functions:
-  here-to-help-frontend:
+  docenter-frontend:
     name: ${self:service}-${self:provider.stage}
     handler: entrypoint.handler
     package:

@@ -2,7 +2,7 @@ import wrapEndpoint from "../../../data/abstract/endpointWrapper";
 import Response from "../../../data/abstract/httpResponses";
 
 export default wrapEndpoint(async ({ params: { id }, headers }) => {
-  const apiBaseUrl = "http://localhost:4000"; //process.env.NEXT_PUBLIC_API_URL;
+  const apiBaseUrl = process.env.API_BASE_URL;
   const apiCallResponse = await fetch(`${apiBaseUrl}/apis/${id}`);
 
   if (apiCallResponse.ok) {

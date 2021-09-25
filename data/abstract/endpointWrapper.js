@@ -2,7 +2,7 @@ import Response from "./httpResponses";
 
 export default function wrapEndpoint(endpointAction) {
   return async (req, res) => {
-    function send(response) {
+    function forward(response) {
       Object.entries(response.headers).forEach(([key, value]) => res.setHeader(key, value));
       res.status(response.statusCode);
       return response.body ? res.send(response.body) : res.end();

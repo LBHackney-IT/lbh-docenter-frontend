@@ -9,7 +9,7 @@ const concatUrl = (baseUrl, relPath) => {
 
 //token,
 async function request(relPath, { ...options }) {
-  const serverSideAPIUrl = "http://localhost:3000/api"; //process.env.NEXT_PUBLIC_API_URL;
+  const serverSideAPIUrl = "/api"; //process.env.NEXT_PUBLIC_API_URL;
   const url = concatUrl(serverSideAPIUrl, relPath);
   console.info(`Fetching ${url}`, options?.body);
   const response = await fetch(url, {

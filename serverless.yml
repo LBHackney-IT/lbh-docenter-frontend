@@ -87,6 +87,8 @@ custom:
         - execute-api
         - eu-west-2
         - amazonaws.com
+  aliases:
+    staging: docenter-staging.hackney.gov.uk
   certificate-arn:
     staging: arn:aws:acm:us-east-1:715003523189:certificate/8f7fa30c-a4e5-4775-b827-ade824a33c9a
   securityGroups:

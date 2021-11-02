@@ -7,14 +7,9 @@ const TableOfContents = ({ tocItems }) => (
   <div className={css.toc}>
     <div className={css.tocBorder}>
       <p>Toc</p>
-      <ul
-        style={{
-          color: "blue",
-          listStyleType: "none",
-        }}
-      >
+      <ul className={css["toc-ul"]}>
         {tocItems.map((item) => (
-          <li key={item.name}>
+          <li className={css["toc-item"]} key={item.name}>
             <Link href={`#${item.name}`}>
               <a>{item.name}</a>
             </Link>

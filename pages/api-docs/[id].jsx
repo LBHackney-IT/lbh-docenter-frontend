@@ -16,22 +16,16 @@ const { queryAPIRecord, queryAPIsList } = require("../../data/accessMethods");
 export default function APIDoc() {
   const router = useRouter();
   const { id } = router.query;
-
   const [environment, setEnvironment] = useState(environments.staging);
-
-  // const id = "lbGpbACv";
   const { data: singleAPI, error: singleAPIError } = useSWR(["/apis/", id], queryAPIRecord);
   const { data: navbarList, error: navbarListError } = useSWR(["/apis"], queryAPIsList);
-
   const tocItems = [...Array(10).keys()].map((num) => {
     return { name: `Section ${num}` };
   });
 
   return (
     <DocsLayout navAPIsList={navbarList} tocSections={tocItems}>
-      {/* Not sure yet if there's any point to having this container tempObject && tempObject.map(node => )*/}
       <article className="sectionsContainer">
-        {/* Empty marker*/}
         {singleAPI ? (
           <>
             <TitleSection
@@ -65,7 +59,6 @@ export default function APIDoc() {
         ) : (
           <Loading />
         )}
-        {/* Empty marker*/}
       </article>
     </DocsLayout>
   );

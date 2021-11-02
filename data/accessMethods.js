@@ -9,6 +9,7 @@ const concatUrl = (baseUrl, relPath) => {
 
 //token,
 async function request(relPath, { ...options }) {
+  console.log("We hit ", relPath);
   const serverSideAPIUrl = "/api"; //process.env.NEXT_PUBLIC_API_URL;
   const url = concatUrl(serverSideAPIUrl, relPath);
   console.info(`Fetching ${url}`, options?.body);

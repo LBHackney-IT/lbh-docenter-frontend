@@ -47,7 +47,7 @@ export default function APIDoc() {
               >
                 <iframe
                   id="swagger-insert"
-                  src={`${singleAPI?.baseUrl.staging}swagger/index.html`}
+                  src={`${singleAPI?.baseUrl[environment.toLowerCase()]}swagger/index.html`}
                   style={{ width: "100%", height: "420px" }}
                 >
                   <p>Your browser does not support iframes.</p>

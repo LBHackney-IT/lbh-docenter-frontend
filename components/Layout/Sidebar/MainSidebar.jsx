@@ -15,6 +15,11 @@ const MainSidebar = ({ navbarItems }) => (
       </Link>
       <nav className={css.apiSelection}>
         <ul className={css.apiNavLinksList}>
+          <li>
+            <Link href={"/api-docs"}>
+              <a>API documentation</a>
+            </Link>
+          </li>
           {navbarItems?.map((item) => (
             <li key={item.id}>
               <Link as={`/api-docs/${item.id}`} href="/api-docs/[id]">

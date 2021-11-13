@@ -5,7 +5,7 @@ const DatabaseDependency = ({ database, extraClass }) => {
   const displayEndpointsSection = !!database?.endpointsUsingIt;
 
   return (
-    <div className={`${css["database-dependency"]} ${extraClass}`}>
+    <div id={`toc-${database.technicalName.toLowerCase()}`} className={`${css["database-dependency"]} ${extraClass}`}>
       <h4>Database Info:</h4>
       {displayNamesSection && (
         <div className={css["names-row"]}>

@@ -19,12 +19,32 @@ export default function APIDoc() {
   const [environment, setEnvironment] = useState(environments.staging);
   const { data: singleAPI, error: singleAPIError } = useSWR(["/apis/", id], queryAPIRecord);
   const { data: navbarList, error: navbarListError } = useSWR(["/apis"], queryAPIsList);
-  const tocItems = [...Array(10).keys()].map((num) => {
-    return { name: `Section ${num}` };
-  });
+  
+  // compute Toc Sections:
+  let tocStrings = [];
+
+  if (singleAPI?.baseUrl && !!Object.keys(singleAPI.baseUrl).length) tocStrings.push({ name: "Urls", idName: "toc-urls" });
+  // if (singleAPI?.otherDocumentation?.businessContext)
+  tocStrings.push({ name: "Description", idName: "toc-description" });
+  if (singleAPI?.baseUrl && !!Object.keys(singleAPI.baseUrl).length) tocStrings.push({ name: "Swagger Information", idName: "toc-swagger"});
+  if (singleAPI?.dependencies && !!Object.keys(singleAPI.dependencies).length) {
+    tocStrings.push({ name: "Dependencies", idName: "toc-dependencies" })
+
+    // TODO: Expand on as features get added.
+    if (singleAPI?.dependencies?.apis?.length) tocStrings.push({ name: "APIs", idName: "toc-apis" });
+    if (singleAPI?.dependencies?.scripts?.length) tocStrings.push({ name: "Scripts", idName: "toc-scripts" });
+    
+    if (singleAPI?.dependencies?.databases?.length) {// && !!Object.keys(singleAPI?.dependencies?.databases).length) {
+      tocStrings.push({ name: "Databases", idName: "toc-databases" });
+      singleAPI?.dependencies?.databases.forEach(d => tocStrings.push({ name: d.technicalName, idName: `toc-${d.technicalName.toLowerCase()}`}));
+    }
+
+    if (singleAPI?.dependencies?.packages?.length) tocStrings.push({ name: "Packages", idName: "toc-packages" });
+  };
+
 
   return (
-    <DocsLayout navAPIsList={navbarList} tocSections={tocItems}>
+    <DocsLayout navAPIsList={navbarList} tocSections={tocStrings}>
       <article className="sectionsContainer">
         {singleAPI ? (
           <>
@@ -35,11 +55,11 @@ export default function APIDoc() {
               environment={environment}
             />
             <UrlsSection baseUrl={singleAPI?.baseUrl} environment={environment} githubUrl={singleAPI?.githubUrl} />
-            <div className="description-section">
+            <div id="toc-description" className="description-section">
               <h2>Description</h2>
               <p>{singleAPI?.otherDocumentation?.businessContext ?? "Description was not found or provided."}</p>
             </div>
-            <div className="swagger-section">
+            <div id="toc-swagger" className="swagger-section">
               <h2>Swagger Information</h2>
               <div
                 className="swagger-iframe-container"

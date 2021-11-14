@@ -17,6 +17,7 @@ export default function APIDoc() {
   const router = useRouter();
   const { id } = router.query;
   const [environment, setEnvironment] = useState(environments.staging);
+  const [activeAPIMenuItem, setActiveAPIMenuItem] = useState("");
   const { data: singleAPI, error: singleAPIError } = useSWR(["/apis/", id], queryAPIRecord);
   const { data: navbarList, error: navbarListError } = useSWR(["/apis"], queryAPIsList);
   
@@ -42,9 +43,14 @@ export default function APIDoc() {
     if (singleAPI?.dependencies?.packages?.length) tocStrings.push({ name: "Packages", idName: "toc-packages" });
   };
 
+  useEffect(() => {
+    const url = window.location.pathname;
+    const nameOfId = url.split('/').pop();
+    setActiveAPIMenuItem(nameOfId)
+  }, [singleAPI])
 
   return (
-    <DocsLayout navAPIsList={navbarList} tocSections={tocStrings}>
+    <DocsLayout navAPIsList={navbarList} tocSections={tocStrings} activeMainMenuItem={activeAPIMenuItem}>
       <article className="sectionsContainer">
         {singleAPI ? (
           <>

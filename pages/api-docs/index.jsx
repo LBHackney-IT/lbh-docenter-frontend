@@ -1,13 +1,14 @@
 import DocsLayout from "../../components/Layout/Docs";
 import Loading from "../../components/Loading/Loading";
+import React, { useState } from "react";
 import useSWR from "swr";
 import css from "../../styles/APIDocsIndex.module.css";
 
 const { queryAPIsList } = require("../../data/accessMethods");
 
 export default function APIDoc() {
+  const [activeAPIMenuItem, setActiveAPIMenuItem] = useState("api-docs");
   const { data: navbarList, error: navbarListError } = useSWR(["/apis"], queryAPIsList);
-
   const tocItems = [{ name: "Page description", idName: "toc-page-description" }, { name: "API signal", idName: "toc-api-signal" }, { name: "API Relationships", idName: "toc-relationship"}]
 
   const apisList = navbarList?.map(api => {
@@ -19,7 +20,7 @@ export default function APIDoc() {
   });
 
   return (
-    <DocsLayout navAPIsList={navbarList} tocSections={tocItems}>
+    <DocsLayout navAPIsList={navbarList} tocSections={tocItems} activeMainMenuItem={activeAPIMenuItem}>
       {/* Not sure yet if there's any point to having this container tempObject && tempObject.map(node => )*/}
       <article className="sectionsContainer">
         {/* Empty marker*/}

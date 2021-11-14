@@ -1,9 +1,39 @@
+.doc-box-links {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-evenly; */
+  justify-content: space-between;
+  margin-top: 2em;
+}
+
+.content-block {
+  padding: 10px 20px;
+}
+
+.sectionsContainer {
+  padding: 0 10px;
+}
+
+.clear-mg {
+  margin: 0;
+}
+
+.section-title {
+  margin-top: 1em;
+}
+
 .doc-source-link-item {
   list-style-type: none;
+  margin-top: 0;
+  padding: 2em 1em;
+  background-color: lightgrey;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 50%);
+  border-bottom: 3px solid rgba(0, 0, 0, 50%);
 }
 
 .doc-source-link-item a {
-  color: blue;
+  /* color: blue; */
   text-decoration: underline;
   margin-top: 1.25rem;
 }

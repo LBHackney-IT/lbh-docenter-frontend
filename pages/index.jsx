@@ -10,7 +10,7 @@ export default function Home() {
     <NonDocsLayout>
       <article className="sectionsContainer">
         <h1 className={css["page-title"]}>Docenter</h1>
-        <p>
+        <p className={css["para-text"]}>
           The Docenter is a service that aims to centralise the documentation access in Hackney. We have multiple
           documentation sources that are scattered across multiple locations and websites. This service aims to remedy
           this problem by providing links to other documentation sources, and centralising the API documentation.

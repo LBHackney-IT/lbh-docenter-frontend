@@ -18,6 +18,10 @@
   margin: 0;
 }
 
+.paragraph-text {
+  line-height: 1.25em;
+}
+
 .section-title {
   margin-top: 1em;
 }

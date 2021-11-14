@@ -1,0 +1,42 @@
+.section-title {
+    margin-top: 1em;
+}
+
+.paragraph-text {
+    line-height: 1.25em;
+}
+
+.status-icon-unknown {
+    height: 1em;
+    width: 1em;
+    border-radius: 50%;
+    background-color: #bbb;
+    display: inline-block;
+}
+
+/* This padding thing needs to be moved to the overall content container */
+.table-container {
+    width: 100%;
+    padding: 0 1em 0 0;
+}
+
+.status-table {
+    width: 100%;
+}
+
+.status-table td {
+    padding: 15px 0;
+}
+
+.status-table th {
+    padding: 0.25em 0;
+}
+
+.status-table,
+.status-table tr,
+.status-table td,
+.status-table th {
+    border-collapse: collapse;
+    border: 1px solid gray;
+    text-align: center;
+}

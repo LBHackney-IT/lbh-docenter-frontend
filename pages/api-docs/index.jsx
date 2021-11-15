@@ -27,7 +27,7 @@ export default function APIDoc() {
         <h1>API docs page</h1>
         <h2 id="toc-page-description" className={css["section-title"]}>Page description</h2>
         <p className={css["paragraph-text"]}>
-          This page is used for displaying of the Hackney's .NET C# APIs' Swagger generated schema information, every API's base url and link to its Github page, as well as dependency datbases and their related endpoints.
+          This page is used for displaying of the Hackney&#39;s .NET C# APIs&#39; Swagger generated schema information, every API&#39;s base url and link to its Github page, as well as dependency datbases and their related endpoints.
         </p>
         {
           navbarList && navbarList.length > 0 && (
@@ -46,9 +46,9 @@ export default function APIDoc() {
                   </thead>
                   <tbody>
                     {
-                      apisList.map(api => {
+                      apisList.map((api, index) => {
                         return (
-                        <tr>
+                        <tr key={index}>
                           <td>{api.name}</td>
                           <td>{api.status}</td>
                           <td>

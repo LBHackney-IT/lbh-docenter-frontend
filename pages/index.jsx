@@ -21,21 +21,21 @@ export default function Home() {
         <p>Click any of the links bellow to go to docenter or other documentation sources. </p>
         <ul className={css["doc-box-links"]} >
           <li>
-            <Link href={"https://lbhackney-it.github.io/API-Playbook/"}>
+            <Link href={"https://lbhackney-it.github.io/API-Playbook/"} passHref={true}>
               <div className={css["doc-source-link-item"]}>
-                <a>Visit the Hackney's API Playbook</a>
+                <a>Visit the Hackney&#39;s API Playbook</a>
               </div>
             </Link>
           </li>
           <li>
-            <Link href={"https://github.com/LBHackney-IT/lbh-base-api/wiki"}>
+            <Link href={"https://github.com/LBHackney-IT/lbh-base-api/wiki"} passHref={true}>
               <div className={css["doc-source-link-item"]}>
-                <a>Read the Base API template's Wiki</a>
+                <a>Read the Base API template&#39;s Wiki</a>
               </div>
             </Link>
           </li>
           <li>
-            <Link href={"/api-docs"}>
+            <Link href={"/api-docs"} passHref={true}>
               <div className={css["doc-source-link-item"]}>
                 <a>View the API specifications</a>
               </div>

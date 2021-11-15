@@ -3,19 +3,15 @@ import Link from "next/link";
 
 // Should go recursively as the data is nested?
 // But not sure if MVP will contain that
-const TableOfContents = ({ tocItems }) => (
+const TableOfContents = ({ tocItems }) => {
+  return (
   <div className={css.toc}>
     <div className={css.tocBorder}>
-      <p>Toc</p>
-      <ul
-        style={{
-          color: "blue",
-          listStyleType: "none",
-        }}
-      >
+        <p>Table of Contents</p>
+      <ul className={css["toc-ul"]}>
         {tocItems.map((item) => (
-          <li key={item.name}>
-            <Link href={`#${item.name}`}>
+          <li className={css["toc-item"]} key={item.name}>
+              <Link href={`#${item.idName}`}>
               <a>{item.name}</a>
             </Link>
           </li>
@@ -24,5 +20,6 @@ const TableOfContents = ({ tocItems }) => (
     </div>
   </div>
 );
+};
 
 export default TableOfContents;

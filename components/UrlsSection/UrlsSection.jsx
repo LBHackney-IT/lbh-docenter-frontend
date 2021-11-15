@@ -4,7 +4,7 @@ const { copyUrlsSectionUrl } = require("../../utilities/globalStateUtils");
 const UrlsSection = ({ baseUrl, environment, githubUrl }) => {
   const environmentKey = environment.toLowerCase();
   return (
-    <div className={css["urls-section-container"]}>
+    <div id="toc-urls" className={css["urls-section-container"]}>
       <h2>Urls</h2>
       <table className={css["project-urls-table"]}>
         <tbody>

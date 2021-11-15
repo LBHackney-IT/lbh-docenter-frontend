@@ -78,7 +78,7 @@
 }
 
 .apiSelection {
-  padding: 0.5rem;
+  padding: 1rem;
   margin-top: 0;
   font-weight: 500;
   overflow-x: hidden;
@@ -124,6 +124,27 @@
 .apiLink,
 .apiLink:hover {
   color: #606770;
+}
+
+.main-menu-item {
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+}
+
+.main-menu-item:hover {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 0.2rem;
+  margin-left: 0.1rem;
+  /* transition: ease-in-out 50ms; */
+}
+
+.selected-menu-item {
+  color: #408184;
+}
+
+.selected-menu-item:hover {
+  color: #408184;
+  /* background: rgba(0, 0, 0, 0.05); */
 }
 
 .apiLinkActive,

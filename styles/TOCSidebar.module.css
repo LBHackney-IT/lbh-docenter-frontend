@@ -13,12 +13,15 @@
 }
 
 /* table-of-contents__left-border { */
-.toc ul li {
+.toc-item {
   margin-top: 0.25rem;
+  color: #606770;
 }
 
-.toc ul {
+.toc-ul {
   margin-top: 0.75rem;
+  list-style-type: none;
+  margin-left: 5px;
 }
 
 /* .toctst,
